@@ -173,14 +173,14 @@
             padding: 0 20px 18px 20px;
         }
 
-        /* Dumaloq avatar va OTP logotipi */
+        /* Avatar: teng yarmi tepada, teng yarmi pastda (118px / 2 = 59px) */
         .avatar-container {
             width: 118px;
             height: 118px;
             border-radius: 50%;
             background-color: #b4ff00;
             border: 6px solid #000000;
-            margin-top: -66px;
+            margin-top: -59px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -241,13 +241,12 @@
             cursor: pointer;
         }
 
-        /* Pastki navigatsiya tablari */
+        /* Pastki navigatsiya tablari (chiziqsiz) */
         .nav-tabs {
             background-color: #000000;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            border-top: 1px solid #262626;
             padding-top: 4px;
         }
 
@@ -256,26 +255,12 @@
             color: #71767b;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 18px;
-            font-weight: 700;
-            position: relative;
+            justify-content: center;
             cursor: pointer;
         }
 
         .nav-tab.active {
             color: #ffffff;
-        }
-
-        .nav-tab.active::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: -6px;
-            right: -6px;
-            height: 3.5px;
-            background-color: #ffffff;
-            border-radius: 2px;
         }
     </style>
 </head>
@@ -388,13 +373,12 @@
 
     <!-- Pastki navigatsiya tablari -->
     <div class="nav-tabs">
-        <div class="nav-tab active">
+        <div class="nav-tab active" aria-label="Posts">
             <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="4" y="4" width="16" height="16" rx="3.5"/>
                 <line x1="8" y1="9.5" x2="15" y2="9.5"/>
                 <line x1="8" y1="14" x2="12" y2="14"/>
             </svg>
-            <span>Posts</span>
         </div>
 
         <div class="nav-tab" aria-label="Replies">
