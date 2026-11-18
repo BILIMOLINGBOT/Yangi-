@@ -32,46 +32,19 @@
             position: relative;
         }
 
-        /* Yuqori sticky tugmalar */
+        /* Yuqori sticky sarlavha uchun joy (bannerdagi ikonkalar olib tashlandi) */
         .top-controls {
             position: fixed;
             top: 0;
             width: 100%;
             max-width: 480px;
+            height: 62px;
             padding: 12px 14px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             z-index: 40;
             pointer-events: none;
-        }
-
-        .top-controls button {
-            pointer-events: auto;
-        }
-
-        .right-controls {
-            display: flex;
-            gap: 10px;
-        }
-
-        .icon-btn {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(6px);
-            border: none;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.15s ease;
-        }
-
-        .icon-btn:active {
-            transform: scale(0.92);
         }
 
         /* Yuqorida qotib turuvchi sarlavha */
@@ -111,7 +84,7 @@
             will-change: transform, filter;
         }
 
-        /* Avatar */
+        /* Avatar: o'z joyida turadi (40% bannerda, 60% qora fonda) va markaziga qarab silliq kichrayadi */
         .avatar-container {
             width: 108px;
             height: 108px;
@@ -145,6 +118,7 @@
             padding: 14px 20px 18px 20px;
         }
 
+        /* Avatar o'ng tomonidagi Javlonbek yozuvi va tasdiqlash belgisi */
         .profile-name-row {
             margin-left: 120px;
             min-height: 52px;
@@ -170,6 +144,7 @@
             justify-content: center;
         }
 
+        /* 30 Obunachilar, 50 Obunalar qismi */
         .stats-row {
             display: flex;
             align-items: center;
@@ -187,6 +162,7 @@
             color: #71767b;
         }
 
+        /* Bio matni */
         .bio-text {
             font-size: 14.5px;
             line-height: 1.4;
@@ -194,35 +170,51 @@
             margin-bottom: 18px;
         }
 
+        /* Tahrirlash va Sozlamalar tugmalari */
         .action-buttons {
             display: flex;
-            gap: 14px;
+            align-items: center;
+            gap: 12px;
             margin-bottom: 10px;
             background-color: #000000;
         }
 
-        .btn-message {
+        .btn-edit {
             flex: 1;
             height: 46px;
             border-radius: 9999px;
             background-color: #000000;
             border: 1.5px solid #333639;
             color: #ffffff;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease;
         }
 
-        .btn-follow {
-            flex: 1;
+        .btn-edit:active {
+            background-color: #16181c;
+            transform: scale(0.98);
+        }
+
+        .btn-settings {
+            width: 46px;
             height: 46px;
-            border-radius: 9999px;
-            background-color: #f2f2f2;
-            border: none;
-            color: #0f0f0f;
-            font-size: 17px;
-            font-weight: 700;
+            border-radius: 50%;
+            background-color: #000000;
+            border: 1.5px solid #333639;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
             cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn-settings:active {
+            background-color: #16181c;
+            transform: scale(0.94);
         }
 
         /* Pastki navigatsiya tablari */
@@ -232,7 +224,6 @@
             justify-content: space-around;
             align-items: center;
             padding-top: 4px;
-            border-bottom: 1px solid #16181c;
             position: sticky;
             top: 62px;
             z-index: 25;
@@ -251,137 +242,30 @@
             color: #ffffff;
         }
 
-        /* Postlar lentasi (rasmdagi ko'rinish) */
-        .feed-list {
-            display: flex;
-            flex-direction: column;
+        /* Scroll ni sinash uchun bo'sh postlar ro'yxati */
+        .feed-placeholder {
+            padding: 12px 20px;
         }
 
-        .post-card {
-            padding: 14px 16px;
-            border-bottom: 1px solid #16181c;
-        }
-
-        .post-hashtag {
-            display: inline-block;
-            color: #1d9bf0;
-            font-size: 16px;
-            font-weight: 400;
-            text-decoration: none;
-            margin-bottom: 12px;
-        }
-
-        .post-media {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #2f3336;
-            background: radial-gradient(circle at 54% 95%, rgba(185, 185, 185, 0.42) 0%, rgba(70, 70, 70, 0.25) 45%, #0c0c0c 85%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-        }
-
-        .post-media-title {
-            color: #e7e9ea;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-            user-select: none;
-        }
-
-        .mute-btn {
-            position: absolute;
-            right: 12px;
-            bottom: 12px;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.72);
-            border: none;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        /* Post ostidagi statistika va tugmalar paneli */
-        .post-actions {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .feed-item {
+            padding: 18px 0;
+            border-top: 1px solid #16181c;
             color: #71767b;
             font-size: 14px;
-            padding-top: 2px;
-        }
-
-        .post-action-btn {
-            background: none;
-            border: none;
-            color: #71767b;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            padding: 4px 0;
-            transition: color 0.15s ease;
-        }
-
-        .post-action-btn:hover {
-            color: #e7e9ea;
-        }
-
-        .post-action-btn.liked {
-            color: #f91880;
-        }
-
-        .post-right-icons {
-            display: flex;
-            align-items: center;
-            gap: 14px;
         }
     </style>
 </head>
 <body>
 
 <div class="profile-card">
-    <!-- Yuqori tugmalar -->
+    <!-- Yuqori sarlavha (bannerdagi ikonkalar olib tashlandi) -->
     <div class="top-controls" id="topControls">
-        <button class="icon-btn" aria-label="Orqaga">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-        </button>
-
         <div class="sticky-header-title" id="stickyTitle">
             <span>Javlonbek</span>
             <svg width="16" height="16" viewBox="0 0 24 24">
                 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" fill="#ffffff" stroke="none"></path>
                 <path d="m9 12 2 2 4-4" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
-        </div>
-
-        <div class="right-controls">
-            <button class="icon-btn" aria-label="Bildirishnomalar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                </svg>
-            </button>
-            <button class="icon-btn" aria-label="Menyu">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="5" r="2.2"/>
-                    <circle cx="12" cy="12" r="2.2"/>
-                    <circle cx="12" cy="19" r="2.2"/>
-                </svg>
-            </button>
         </div>
     </div>
 
@@ -390,13 +274,14 @@
         <img class="banner-img" id="bannerImg" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Banner foni">
     </div>
 
-    <!-- Avatar -->
+    <!-- Avatar doira: o'z joyida turadi va silliq kichrayadi -->
     <div class="avatar-container" id="avatarContainer">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Javlonbek">
     </div>
 
     <!-- Pastki qora panel -->
     <div class="bottom-sheet">
+        <!-- Javlonbek va uning yonidagi tasdiqlash belgisi -->
         <div class="profile-name-row">
             <h1 class="user-title">Javlonbek</h1>
             <span class="verified-badge-icon">
@@ -407,16 +292,24 @@
             </span>
         </div>
 
+        <!-- 30 Obunachilar, 50 Obunalar -->
         <div class="stats-row">
             <div class="stat-item"><strong>30</strong> <span>Obunachilar</span></div>
             <div class="stat-item"><strong>50</strong> <span>Obunalar</span></div>
         </div>
 
+        <!-- Bio matni -->
         <p class="bio-text">Kutmagan odamlarimdan kutilmagan zarbalar oldim</p>
 
+        <!-- Tahrirlash tugmasi va Sozlamalar ikonkasi -->
         <div class="action-buttons">
-            <button class="btn-message">Message</button>
-            <button class="btn-follow">Follow</button>
+            <button class="btn-edit">Tahrirlash</button>
+            <button class="btn-settings" aria-label="Sozlamalar">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </button>
         </div>
     </div>
 
@@ -436,12 +329,10 @@
             </svg>
         </div>
 
-        <div class="nav-tab" aria-label="Reposts">
-            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="17 1 21 5 17 9"/>
-                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
-                <polyline points="7 23 3 19 7 15"/>
-                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+        <!-- Repost o'rniga Save ikonkasi -->
+        <div class="nav-tab" aria-label="Saved">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
             </svg>
         </div>
 
@@ -454,81 +345,11 @@
         </div>
     </div>
 
-    <!-- Ikonkalar ostidagi post ko'rinishi -->
-    <div class="feed-list">
-        <article class="post-card">
-            <a href="#" class="post-hashtag">#xHamsterAwards2026</a>
-
-            <div class="post-media">
-                <span class="post-media-title">BEST ACTRESS</span>
-                <button class="mute-btn" aria-label="Ovozni o'chirish">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                        <line x1="23" y1="9" x2="17" y2="15"/>
-                        <line x1="17" y1="9" x2="23" y2="15"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="post-actions">
-                <!-- Izoh (23) -->
-                <button class="post-action-btn" aria-label="Izohlar">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                    </svg>
-                    <span>23</span>
-                </button>
-
-                <!-- Repost (62) -->
-                <button class="post-action-btn" aria-label="Repost">
-                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="17 2 21 6 17 10"/>
-                        <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
-                        <polyline points="7 22 3 18 7 14"/>
-                        <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
-                    </svg>
-                    <span>62</span>
-                </button>
-
-                <!-- Layk (523) -->
-                <button class="post-action-btn" id="likeBtn" aria-label="Yoqtirish">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
-                    <span id="likeCount">523</span>
-                </button>
-
-                <!-- Ko'rishlar (115K) -->
-                <button class="post-action-btn" aria-label="Ko'rishlar">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="20" x2="6" y2="10"/>
-                        <line x1="10" y1="20" x2="10" y2="4"/>
-                        <line x1="14" y1="20" x2="14" y2="14"/>
-                        <line x1="18" y1="20" x2="18" y2="8"/>
-                    </svg>
-                    <span>115K</span>
-                </button>
-
-                <!-- Xatcho'p va Ulashish -->
-                <div class="post-right-icons">
-                    <button class="post-action-btn" aria-label="Saqlash">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-                        </svg>
-                    </button>
-
-                    <button class="post-action-btn" aria-label="Ulashish">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="18" cy="5" r="3"/>
-                            <circle cx="6" cy="12" r="3"/>
-                            <circle cx="18" cy="19" r="3"/>
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </article>
+    <!-- Scroll ni sinash uchun bo'sh postlar ro'yxati -->
+    <div class="feed-placeholder">
+        <div class="feed-item">Postlar ro'yxati...</div>
+        <div class="feed-item"></div>
+        <div class="feed-item"></div>
     </div>
 </div>
 
@@ -545,16 +366,20 @@
         const scrollY = window.scrollY || window.pageYOffset;
         targetProgress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
 
+        // Silliq (lerp) interpolatsiya
         currentProgress += (targetProgress - currentProgress) * 0.14;
 
+        // Doira o'z joyidan siljimasdan, o'z markaziga qarab 1 dan 0.55 gacha silliq kichrayadi
         const scale = 1 - (currentProgress * 0.45);
         avatar.style.transform = `scale(${scale})`;
 
+        // Banner sekin xiralashadi
         const blurAmount = currentProgress * 6;
         const bannerScale = 1 + (currentProgress * 0.08);
         bannerImg.style.filter = `blur(${blurAmount}px) brightness(${1 - currentProgress * 0.35})`;
         bannerImg.style.transform = `scale(${bannerScale})`;
 
+        // Yuqoridagi sarlavha ko'rinishi
         if (currentProgress > 0.75) {
             stickyTitle.classList.add('visible');
         } else {
@@ -565,19 +390,7 @@
     }
 
     requestAnimationFrame(updateProgress);
-
-    // Layk bosilganda son o'zgarishi
-    const likeBtn = document.getElementById('likeBtn');
-    const likeCount = document.getElementById('likeCount');
-    let isLiked = false;
-
-    likeBtn.addEventListener('click', () => {
-        isLiked = !isLiked;
-        likeBtn.classList.toggle('liked', isLiked);
-        likeCount.textContent = isLiked ? '524' : '523';
-    });
 </script>
 
 </body>
 </html>
- 
