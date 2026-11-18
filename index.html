@@ -29,7 +29,7 @@
             position: relative;
         }
 
-        /* Yuqori yashil to'lqinli banner[span_0](start_span)[span_0](end_span) */
+        /* Yuqori yashil to'lqinli banner */
         .banner {
             height: 230px;
             background-color: #b4ff00;
@@ -45,7 +45,7 @@
             object-fit: cover;
         }
 
-        /* Yuqori boshqaruv tugmalari[span_1](start_span)[span_1](end_span) */
+        /* Yuqori boshqaruv tugmalari */
         .top-controls {
             position: absolute;
             top: 16px;
@@ -76,7 +76,7 @@
             cursor: pointer;
         }
 
-        /* Markazdagi matn va 3D elementlar[span_2](start_span)[span_2](end_span) */
+        /* Markazdagi matn va 3D elementlar */
         .banner-content {
             position: relative;
             z-index: 6;
@@ -116,7 +116,7 @@
             margin-top: 2px;
         }
 
-        /* "ОТП" yozuvi orqasidagi kontur[span_3](start_span)[span_3](end_span) */
+        /* "ОТП" yozuvi orqasidagi kontur */
         .text-line-3::after {
             content: "ОТП";
             position: absolute;
@@ -127,7 +127,7 @@
             z-index: -1;
         }
 
-        /* Chap tomondagi binafsha 3D yulduzcha[span_4](start_span)[span_4](end_span) */
+        /* Chap tomondagi binafsha 3D yulduzcha */
         .sparkle-3d {
             position: absolute;
             left: -48px;
@@ -137,7 +137,7 @@
             filter: drop-shadow(2px 4px 6px rgba(65, 15, 115, 0.45));
         }
 
-        /* O'ng tomondagi 3D binafsha halqa[span_5](start_span)[span_5](end_span) */
+        /* O'ng tomondagi 3D binafsha halqa */
         .ring-3d-wrapper {
             position: absolute;
             right: -18px;
@@ -148,7 +148,7 @@
             pointer-events: none;
         }
 
-        /* O'ng pastki burchakdagi A+ belgisi[span_6](start_span)[span_6](end_span) */
+        /* O'ng pastki burchakdagi A+ belgisi */
         .age-badge {
             position: absolute;
             right: 14px;
@@ -162,7 +162,7 @@
             z-index: 7;
         }
 
-        /* Pastki qora panel[span_7](start_span)[span_7](end_span) */
+        /* Pastki qora panel */
         .bottom-sheet {
             background-color: #161616;
             border-top-left-radius: 22px;
@@ -173,7 +173,7 @@
             padding: 0 20px 18px 20px;
         }
 
-        /* Dumaloq avatar va OTP logotipi[span_8](start_span)[span_8](end_span) */
+        /* Dumaloq avatar va OTP logotipi */
         .avatar-container {
             width: 118px;
             height: 118px;
@@ -187,7 +187,7 @@
             position: relative;
         }
 
-        /* Sarlavha va tasdiqlangan belgi[span_9](start_span)[span_9](end_span) */
+        /* Sarlavha va tasdiqlangan belgi */
         .title-row {
             display: flex;
             align-items: center;
@@ -198,8 +198,8 @@
 
         .bank-title {
             font-size: 26px;
-            font-weight: 600;
-            color: #f1f1f1;
+            font-weight: 700;
+            color: #000000;
             letter-spacing: -0.3px;
         }
 
@@ -209,7 +209,7 @@
             color: #4da3ff;
         }
 
-        /* Message va Follow tugmalari[span_10](start_span)[span_10](end_span) */
+        /* Message va Follow tugmalari */
         .action-buttons {
             display: flex;
             gap: 14px;
@@ -240,7 +240,7 @@
             cursor: pointer;
         }
 
-        /* Pastki navigatsiya tablari[span_11](start_span)[span_11](end_span) */
+        /* Pastki navigatsiya tablari */
         .nav-tabs {
             background-color: #000000;
             display: flex;
@@ -281,7 +281,7 @@
 <body>
 
 <div class="profile-card">
-    <!-- Yuqori banner[span_12](start_span)[span_12](end_span) -->
+    <!-- Yuqori banner -->
     <div class="banner">
         <svg class="banner-bg-svg" viewBox="0 0 400 240" preserveAspectRatio="none">
             <defs>
@@ -294,7 +294,7 @@
             <rect width="400" height="240" fill="url(#wavyPattern)" opacity="0.75"/>
         </svg>
 
-        <!-- Yuqori tugmalar[span_13](start_span)[span_13](end_span) -->
+        <!-- Yuqori tugmalar -->
         <div class="top-controls">
             <button class="icon-btn" aria-label="Назад">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
@@ -318,7 +318,7 @@
             </div>
         </div>
 
-        <!-- O'ng tarafdagi 3D binafsha halqa[span_14](start_span)[span_14](end_span) -->
+        <!-- O'ng tarafdagi 3D binafsha halqa -->
         <svg class="ring-3d-wrapper" viewBox="0 0 140 140">
             <defs>
                 <radialGradient id="purpleSphere" cx="35%" cy="30%" r="70%">
@@ -338,7 +338,7 @@
             <circle cx="106" cy="34" r="14" fill="url(#purpleSphere)"/>
         </svg>
 
-        <!-- Markazdagi matn va yulduzcha[span_15](start_span)[span_15](end_span) -->
+        <!-- Markazdagi matn va yulduzcha -->
         <div class="banner-content">
             <div class="banner-text">
                 <svg class="sparkle-3d" viewBox="0 0 100 100">
@@ -361,7 +361,7 @@
         <div class="age-badge">A+</div>
     </div>
 
-    <!-- Pastki qora panel[span_16](start_span)[span_16](end_span) -->
+    <!-- Pastki panel -->
     <div class="bottom-sheet">
         <div class="avatar-container">
             <svg width="74" height="74" viewBox="0 0 100 100">
@@ -378,14 +378,14 @@
             </svg>
         </div>
 
-        <!-- Message va Follow tugmalari[span_17](start_span)[span_17](end_span) -->
+        <!-- Message va Follow tugmalari -->
         <div class="action-buttons">
             <button class="btn-message">Message</button>
             <button class="btn-follow">Follow</button>
         </div>
     </div>
 
-    <!-- Pastki navigatsiya tablari[span_18](start_span)[span_18](end_span) -->
+    <!-- Pastki navigatsiya tablari -->
     <div class="nav-tabs">
         <div class="nav-tab active">
             <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
