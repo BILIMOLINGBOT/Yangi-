@@ -27,34 +27,23 @@
             background-color: #191919;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
         }
 
-        /* Yuqori yashil banner[span_0](start_span)[span_0](end_span) */
+        /* Yuqori laym-yashil to'lqinli banner[span_0](start_span)[span_0](end_span) */
         .banner {
-            height: 230px;
-            background-color: #aeff00;
-            background-image: repeating-radial-gradient(
-                circle at 0 0,
-                transparent 0,
-                #aeff00 18px
-            ), repeating-linear-gradient(#9ee60066, #b8ff1a66);
+            height: 235px;
+            background-color: #b4ff00;
             position: relative;
             overflow: hidden;
         }
 
-        /* Bannerdagi to'lqinli naqshlar */
-        .banner-waves {
+        .banner-bg-svg {
             position: absolute;
             inset: 0;
-            opacity: 0.35;
-            background: repeating-linear-gradient(
-                -45deg,
-                #8ed600,
-                #8ed600 12px,
-                transparent 12px,
-                transparent 24px
-            );
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Yuqori boshqaruv tugmalari[span_1](start_span)[span_1](end_span) */
@@ -66,7 +55,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 10;
+            z-index: 15;
         }
 
         .right-controls {
@@ -78,7 +67,7 @@
             width: 46px;
             height: 46px;
             border-radius: 50%;
-            background-color: rgba(70, 95, 10, 0.45);
+            background-color: rgba(76, 102, 12, 0.42);
             backdrop-filter: blur(4px);
             border: none;
             color: #ffffff;
@@ -88,31 +77,31 @@
             cursor: pointer;
         }
 
-        /* Banner markazidagi matn va 3D elementlar[span_2](start_span)[span_2](end_span) */
+        /* Markazdagi matn va 3D grafik elementlar[span_2](start_span)[span_2](end_span) */
         .banner-content {
             position: relative;
-            z-index: 5;
+            z-index: 6;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding-left: 20px;
-            padding-bottom: 15px;
+            padding-left: 16px;
+            padding-bottom: 18px;
         }
 
         .banner-text {
             color: #000000;
             font-weight: 900;
-            line-height: 0.92;
+            line-height: 0.9;
             text-align: center;
             position: relative;
         }
 
         .text-line-1 {
-            font-size: 46px;
+            font-size: 48px;
             letter-spacing: -1.5px;
-            margin-left: 18px;
+            margin-left: 20px;
         }
 
         .text-line-2 {
@@ -121,70 +110,43 @@
         }
 
         .text-line-3 {
-            font-size: 48px;
+            font-size: 50px;
             font-style: italic;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
             position: relative;
             margin-top: 2px;
         }
 
-        /* Matn orqasidagi kontur chiziq[span_3](start_span)[span_3](end_span) */
+        /* "ОТП" yozuvi orqasidagi kontur[span_3](start_span)[span_3](end_span) */
         .text-line-3::after {
             content: "ОТП";
             position: absolute;
-            left: 3px;
-            top: 6px;
+            left: 4px;
+            top: 7px;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
+            -webkit-text-stroke: 1.1px rgba(0, 0, 0, 0.35);
             z-index: -1;
         }
 
-        /* Chap tomondagi binafsha yulduzcha[span_4](start_span)[span_4](end_span) */
+        /* Chap tomondagi binafsha 3D yulduzcha[span_4](start_span)[span_4](end_span) */
         .sparkle-3d {
             position: absolute;
-            left: -46px;
-            top: 22px;
-            width: 58px;
-            height: 58px;
+            left: -48px;
+            top: 24px;
+            width: 60px;
+            height: 60px;
             filter: drop-shadow(2px 4px 6px rgba(65, 15, 115, 0.45));
         }
 
-        /* O'ng tomondagi 3D binafsha halqa[span_5](start_span)[span_5](end_span) */
-        .ring-3d {
+        /* O'ng tomondagi 3D binafsha OTP halqa[span_5](start_span)[span_5](end_span) */
+        .ring-3d-wrapper {
             position: absolute;
-            right: -12px;
-            top: -8px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 14px solid #8a4fd6;
-            box-shadow:
-                inset 0 4px 10px rgba(255, 255, 255, 0.65),
-                inset 0 -6px 12px rgba(45, 12, 92, 0.8),
-                0 8px 18px rgba(45, 12, 92, 0.45);
-            z-index: 3;
-        }
-
-        .ring-3d-inner {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #e0baff, #7c3aed 55%, #3b0764 100%);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .ring-3d-dot {
-            position: absolute;
-            top: -10px;
-            right: 8px;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #f3e8ff, #7e22ce 60%, #3b0764 100%);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+            right: -18px;
+            top: -12px;
+            width: 145px;
+            height: 145px;
+            z-index: 4;
+            pointer-events: none;
         }
 
         /* O'ng pastki burchakdagi A+ belgisi[span_6](start_span)[span_6](end_span) */
@@ -192,23 +154,23 @@
             position: absolute;
             right: 14px;
             bottom: 34px;
-            background-color: rgba(85, 115, 15, 0.65);
+            background-color: rgba(88, 118, 16, 0.65);
             color: #ffffff;
             font-size: 13px;
             font-weight: 700;
             padding: 3px 7px;
             border-radius: 5px;
-            z-index: 6;
+            z-index: 7;
         }
 
-        /* Pastki qora qism[span_7](start_span)[span_7](end_span) */
+        /* Pastki qora panel[span_7](start_span)[span_7](end_span) */
         .bottom-sheet {
             background-color: #191919;
             border-top-left-radius: 22px;
             border-top-right-radius: 22px;
             margin-top: -22px;
             position: relative;
-            z-index: 8;
+            z-index: 10;
             padding: 0 20px 28px 20px;
         }
 
@@ -217,7 +179,7 @@
             width: 118px;
             height: 118px;
             border-radius: 50%;
-            background-color: #aeff00;
+            background-color: #b4ff00;
             border: 6px solid #191919;
             margin-top: -66px;
             display: flex;
@@ -251,11 +213,21 @@
 <body>
 
 <div class="profile-card">
-    <!-- Banner qismi[span_10](start_span)[span_10](end_span) -->
+    <!-- Banner[span_10](start_span)[span_10](end_span) -->
     <div class="banner">
-        <div class="banner-waves"></div>
+        <!-- To'lqinli yashil fon SVG[span_11](start_span)[span_11](end_span) -->
+        <svg class="banner-bg-svg" viewBox="0 0 400 240" preserveAspectRatio="none">
+            <defs>
+                <pattern id="wavyPattern" x="0" y="0" width="40" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 Q 25 20, 10 40 T 10 80" fill="none" stroke="#9be600" stroke-width="10" stroke-linecap="round"/>
+                    <path d="M 30 0 Q 45 20, 30 40 T 30 80" fill="none" stroke="#a8f500" stroke-width="8" stroke-linecap="round"/>
+                </pattern>
+            </defs>
+            <rect width="400" height="240" fill="#b4ff00"/>
+            <rect width="400" height="240" fill="url(#wavyPattern)" opacity="0.75"/>
+        </svg>
 
-        <!-- Yuqori tugmalar[span_11](start_span)[span_11](end_span) -->
+        <!-- Yuqori tugmalar[span_12](start_span)[span_12](end_span) -->
         <div class="top-controls">
             <button class="icon-btn" aria-label="Назад">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
@@ -279,16 +251,32 @@
             </div>
         </div>
 
-        <!-- O'ng tarafdagi 3D element[span_12](start_span)[span_12](end_span) -->
-        <div class="ring-3d">
-            <div class="ring-3d-inner"></div>
-            <div class="ring-3d-dot"></div>
-        </div>
+        <!-- O'ng tarafdagi 3D binafsha halqa SVG[span_13](start_span)[span_13](end_span) -->
+        <svg class="ring-3d-wrapper" viewBox="0 0 140 140">
+            <defs>
+                <radialGradient id="purpleSphere" cx="35%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#f3e8ff"/>
+                    <stop offset="35%" stop-color="#9333ea"/>
+                    <stop offset="80%" stop-color="#581c87"/>
+                    <stop offset="100%" stop-color="#3b0764"/>
+                </radialGradient>
+                <linearGradient id="purpleArc" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#d8b4fe"/>
+                    <stop offset="50%" stop-color="#7e22ce"/>
+                    <stop offset="100%" stop-color="#4c1d95"/>
+                </linearGradient>
+            </defs>
+            <!-- Tashqi 3D yoy -->
+            <path d="M 70 15 A 55 55 0 1 0 120 88" fill="none" stroke="url(#purpleArc)" stroke-width="18" stroke-linecap="round"/>
+            <!-- Markaziy 3D shar -->
+            <circle cx="70" cy="70" r="26" fill="url(#purpleSphere)"/>
+            <!-- Yuqori o'ng kichik shar -->
+            <circle cx="106" cy="34" r="14" fill="url(#purpleSphere)"/>
+        </svg>
 
-        <!-- Markazdagi matn va yulduzcha[span_13](start_span)[span_13](end_span) -->
+        <!-- Markazdagi matn va yulduzcha[span_14](start_span)[span_14](end_span) -->
         <div class="banner-content">
             <div class="banner-text">
-                <!-- 4 qirrali 3D yulduzcha SVG[span_14](start_span)[span_14](end_span) -->
                 <svg class="sparkle-3d" viewBox="0 0 100 100">
                     <defs>
                         <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -312,13 +300,9 @@
     <!-- Pastki qora panel[span_15](start_span)[span_15](end_span) -->
     <div class="bottom-sheet">
         <div class="avatar-container">
-            <!-- ОТП Банк logotipi SVG[span_16](start_span)[span_16](end_span) -->
             <svg width="74" height="74" viewBox="0 0 100 100">
-                <!-- Tashqi yarim doira -->
                 <path d="M 50 14 A 36 36 0 1 0 84 62" fill="none" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
-                <!-- Markaziy qora doira -->
                 <circle cx="50" cy="50" r="14" fill="#000000"/>
-                <!-- Yuqori o'ng nuqta -->
                 <circle cx="75" cy="27" r="9.5" fill="#000000"/>
             </svg>
         </div>
