@@ -139,7 +139,7 @@
             display: flex;
             align-items: center;
             gap: 18px;
-            margin-bottom: 18px;
+            margin-bottom: 10px;
             font-size: 15px;
         }
 
@@ -150,6 +150,14 @@
 
         .stat-item span {
             color: #71767b;
+        }
+
+        /* Bio matni */
+        .bio-text {
+            font-size: 14.5px;
+            line-height: 1.4;
+            color: #e7e9ea;
+            margin-bottom: 18px;
         }
 
         /* Message va Follow tugmalari */
@@ -205,89 +213,6 @@
         .nav-tab.active {
             color: #ffffff;
         }
-
-        /* Tasdiqlash belgisi sozlamasi qismi */
-        .section {
-            padding: 16px 20px;
-        }
-
-        .settings-group {
-            background-color: #16181c;
-            border-radius: 14px;
-            padding: 14px 16px;
-        }
-
-        .setting-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .setting-icon svg {
-            width: 24px;
-            height: 24px;
-            display: block;
-        }
-
-        .setting-content {
-            flex: 1;
-        }
-
-        .setting-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        /* Toggle Switch */
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 48px;
-            height: 28px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .toggle-track {
-            position: absolute;
-            cursor: pointer;
-            inset: 0;
-            background-color: #333639;
-            border-radius: 34px;
-            transition: 0.25s;
-        }
-
-        .toggle-track::before {
-            content: "";
-            position: absolute;
-            height: 22px;
-            width: 22px;
-            left: 3px;
-            bottom: 3px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            transition: 0.25s;
-        }
-
-        .toggle-switch input:checked + .toggle-track {
-            background-color: #1d9bf0;
-        }
-
-        .toggle-switch input:checked + .toggle-track::before {
-            transform: translateX(20px);
-        }
-
-        .setting-description {
-            font-size: 13px;
-            color: #71767b;
-            margin-top: 8px;
-            padding: 0 4px;
-        }
     </style>
 </head>
 <body>
@@ -332,7 +257,7 @@
         <!-- Javlonbek va uning yonidagi tasdiqlash belgisi -->
         <div class="profile-name-row">
             <h1 class="user-title">Javlonbek</h1>
-            <span class="verified-badge-icon" id="profileVerifiedBadge">
+            <span class="verified-badge-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24">
                     <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" fill="#ffffff" stroke="none"></path>
                     <path d="m9 12 2 2 4-4" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -345,6 +270,9 @@
             <div class="stat-item"><strong>30</strong> <span>Obunachilar</span></div>
             <div class="stat-item"><strong>50</strong> <span>Obunalar</span></div>
         </div>
+
+        <!-- Bio matni -->
+        <p class="bio-text">Kutmagan odamlarimdan kutilmagan zarbalar oldim</p>
 
         <!-- Message va Follow tugmalari -->
         <div class="action-buttons">
@@ -386,38 +314,7 @@
             </svg>
         </div>
     </div>
-
-    <!-- Tasdiqlash belgisi sozlamasi -->
-    <div class="section">
-        <div class="settings-group">
-            <div class="setting-item" id="verifiedRow">
-                <div class="setting-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" fill="#ffffff" stroke="none"></path>
-                        <path d="m9 12 2 2 4-4" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </div>
-                <div class="setting-content">
-                    <span class="setting-title">Tasdiqlash belgisi</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="verifiedToggle" checked>
-                    <span class="toggle-track"></span>
-                </label>
-            </div>
-        </div>
-        <p class="setting-description">Profil yonida tasdiqlangan hisob belgisini ko‘rsatish.</p>
-    </div>
 </div>
-
-<script>
-    const verifiedToggle = document.getElementById('verifiedToggle');
-    const profileVerifiedBadge = document.getElementById('profileVerifiedBadge');
-
-    verifiedToggle.addEventListener('change', () => {
-        profileVerifiedBadge.style.display = verifiedToggle.checked ? 'inline-flex' : 'none';
-    });
-</script>
 
 </body>
 </html>
