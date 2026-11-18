@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #0d0d0d;
+            background-color: #000000;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -24,15 +24,14 @@
         .profile-card {
             width: 100%;
             max-width: 480px;
-            background-color: #191919;
+            background-color: #161616;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
         }
 
-        /* Yuqori laym-yashil to'lqinli banner[span_0](start_span)[span_0](end_span) */
+        /* Yuqori yashil to'lqinli banner[span_0](start_span)[span_0](end_span) */
         .banner {
-            height: 235px;
+            height: 230px;
             background-color: #b4ff00;
             position: relative;
             overflow: hidden;
@@ -77,7 +76,7 @@
             cursor: pointer;
         }
 
-        /* Markazdagi matn va 3D grafik elementlar[span_2](start_span)[span_2](end_span) */
+        /* Markazdagi matn va 3D elementlar[span_2](start_span)[span_2](end_span) */
         .banner-content {
             position: relative;
             z-index: 6;
@@ -138,7 +137,7 @@
             filter: drop-shadow(2px 4px 6px rgba(65, 15, 115, 0.45));
         }
 
-        /* O'ng tomondagi 3D binafsha OTP halqa[span_5](start_span)[span_5](end_span) */
+        /* O'ng tomondagi 3D binafsha halqa[span_5](start_span)[span_5](end_span) */
         .ring-3d-wrapper {
             position: absolute;
             right: -18px;
@@ -165,13 +164,13 @@
 
         /* Pastki qora panel[span_7](start_span)[span_7](end_span) */
         .bottom-sheet {
-            background-color: #191919;
+            background-color: #161616;
             border-top-left-radius: 22px;
             border-top-right-radius: 22px;
             margin-top: -22px;
             position: relative;
             z-index: 10;
-            padding: 0 20px 28px 20px;
+            padding: 0 20px 18px 20px;
         }
 
         /* Dumaloq avatar va OTP logotipi[span_8](start_span)[span_8](end_span) */
@@ -180,7 +179,7 @@
             height: 118px;
             border-radius: 50%;
             background-color: #b4ff00;
-            border: 6px solid #191919;
+            border: 6px solid #161616;
             margin-top: -66px;
             display: flex;
             align-items: center;
@@ -194,6 +193,7 @@
             align-items: center;
             gap: 8px;
             margin-top: 14px;
+            margin-bottom: 22px;
         }
 
         .bank-title {
@@ -208,14 +208,81 @@
             height: 20px;
             color: #4da3ff;
         }
+
+        /* Message va Follow tugmalari[span_10](start_span)[span_10](end_span) */
+        .action-buttons {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+
+        .btn-message {
+            flex: 1;
+            height: 48px;
+            border-radius: 9999px;
+            background-color: transparent;
+            border: 1.5px solid #484848;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-follow {
+            flex: 1;
+            height: 48px;
+            border-radius: 9999px;
+            background-color: #f2f2f2;
+            border: none;
+            color: #0f0f0f;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Pastki navigatsiya tablari[span_11](start_span)[span_11](end_span) */
+        .nav-tabs {
+            background-color: #000000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #262626;
+            padding-top: 4px;
+        }
+
+        .nav-tab {
+            padding: 14px 12px;
+            color: #71767b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-tab.active {
+            color: #ffffff;
+        }
+
+        .nav-tab.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -6px;
+            right: -6px;
+            height: 3.5px;
+            background-color: #ffffff;
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
 
 <div class="profile-card">
-    <!-- Banner[span_10](start_span)[span_10](end_span) -->
+    <!-- Yuqori banner[span_12](start_span)[span_12](end_span) -->
     <div class="banner">
-        <!-- To'lqinli yashil fon SVG[span_11](start_span)[span_11](end_span) -->
         <svg class="banner-bg-svg" viewBox="0 0 400 240" preserveAspectRatio="none">
             <defs>
                 <pattern id="wavyPattern" x="0" y="0" width="40" height="80" patternUnits="userSpaceOnUse">
@@ -227,7 +294,7 @@
             <rect width="400" height="240" fill="url(#wavyPattern)" opacity="0.75"/>
         </svg>
 
-        <!-- Yuqori tugmalar[span_12](start_span)[span_12](end_span) -->
+        <!-- Yuqori tugmalar[span_13](start_span)[span_13](end_span) -->
         <div class="top-controls">
             <button class="icon-btn" aria-label="Назад">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
@@ -251,7 +318,7 @@
             </div>
         </div>
 
-        <!-- O'ng tarafdagi 3D binafsha halqa SVG[span_13](start_span)[span_13](end_span) -->
+        <!-- O'ng tarafdagi 3D binafsha halqa[span_14](start_span)[span_14](end_span) -->
         <svg class="ring-3d-wrapper" viewBox="0 0 140 140">
             <defs>
                 <radialGradient id="purpleSphere" cx="35%" cy="30%" r="70%">
@@ -266,15 +333,12 @@
                     <stop offset="100%" stop-color="#4c1d95"/>
                 </linearGradient>
             </defs>
-            <!-- Tashqi 3D yoy -->
             <path d="M 70 15 A 55 55 0 1 0 120 88" fill="none" stroke="url(#purpleArc)" stroke-width="18" stroke-linecap="round"/>
-            <!-- Markaziy 3D shar -->
             <circle cx="70" cy="70" r="26" fill="url(#purpleSphere)"/>
-            <!-- Yuqori o'ng kichik shar -->
             <circle cx="106" cy="34" r="14" fill="url(#purpleSphere)"/>
         </svg>
 
-        <!-- Markazdagi matn va yulduzcha[span_14](start_span)[span_14](end_span) -->
+        <!-- Markazdagi matn va yulduzcha[span_15](start_span)[span_15](end_span) -->
         <div class="banner-content">
             <div class="banner-text">
                 <svg class="sparkle-3d" viewBox="0 0 100 100">
@@ -297,7 +361,7 @@
         <div class="age-badge">A+</div>
     </div>
 
-    <!-- Pastki qora panel[span_15](start_span)[span_15](end_span) -->
+    <!-- Pastki qora panel[span_16](start_span)[span_16](end_span) -->
     <div class="bottom-sheet">
         <div class="avatar-container">
             <svg width="74" height="74" viewBox="0 0 100 100">
@@ -311,6 +375,47 @@
             <h1 class="bank-title">ОТП Банк</h1>
             <svg class="verified-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+
+        <!-- Message va Follow tugmalari[span_17](start_span)[span_17](end_span) -->
+        <div class="action-buttons">
+            <button class="btn-message">Message</button>
+            <button class="btn-follow">Follow</button>
+        </div>
+    </div>
+
+    <!-- Pastki navigatsiya tablari[span_18](start_span)[span_18](end_span) -->
+    <div class="nav-tabs">
+        <div class="nav-tab active">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="3.5"/>
+                <line x1="8" y1="9.5" x2="15" y2="9.5"/>
+                <line x1="8" y1="14" x2="12" y2="14"/>
+            </svg>
+            <span>Posts</span>
+        </div>
+
+        <div class="nav-tab" aria-label="Replies">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+        </div>
+
+        <div class="nav-tab" aria-label="Reposts">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="17 1 21 5 17 9"/>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                <polyline points="7 23 3 19 7 15"/>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+        </div>
+
+        <div class="nav-tab" aria-label="Media">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="6" width="18" height="14" rx="3"/>
+                <line x1="6" y1="3" x2="18" y2="3"/>
+                <polygon points="10.5 10 15.5 13 10.5 16 10.5 10" fill="currentColor" stroke="none"/>
             </svg>
         </div>
     </div>
