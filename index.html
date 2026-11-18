@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Reynolds (@VancityReynolds) / X</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            color: #e7e9ea;
+        }
+
+        .mobile-container {
+            width: 100%;
+            max-width: 412px;
+            background-color: #000000;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            border-left: 1px solid #2f3336;
+            border-right: 1px solid #2f3336;
+            padding-bottom: 70px;
+        }
+
+        /* Banner qismi */
+        .banner {
+            height: 135px;
+            background: linear-gradient(180deg, #c8c8c8 0%, #e5e5e5 100%);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .banner-pendant {
+            font-size: 55px;
+            font-weight: bold;
+            display: flex;
+            gap: 4px;
+            margin-top: 10px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+
+        /* Yuqori tugmalar */
+        .top-actions {
+            position: absolute;
+            top: 16px;
+            left: 14px;
+            right: 14px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .right-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .circle-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: rgba(15, 20, 25, 0.65);
+            border: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Profil rasmi va ulashish tugmasi */
+        .profile-header {
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: -38px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .avatar-wrapper {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            border: 4px solid #000000;
+            background-color: #222;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top, #b71c1c, #4a0000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #333639;
+            background-color: #000000;
+            color: #e7e9ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+
+        /* Profil ma'lumotlari */
+        .profile-info {
+            padding: 10px 16px;
+        }
+
+        .name-row {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #e7e9ea;
+        }
+
+        .verified-badge {
+            width: 18px;
+            height: 18px;
+            fill: #1d9bf0;
+        }
+
+        .handle {
+            font-size: 14px;
+            color: #71767b;
+            margin-top: 1px;
+        }
+
+        .translate-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #1d9bf0;
+            font-size: 13px;
+            text-decoration: none;
+            margin: 12px 0 8px;
+        }
+
+        .bio {
+            font-size: 14.5px;
+            line-height: 1.35;
+            color: #e7e9ea;
+            margin-bottom: 12px;
+        }
+
+        .bio span {
+            color: #1d9bf0;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            font-size: 13.5px;
+            color: #71767b;
+            margin-bottom: 12px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .meta-item a {
+            color: #1d9bf0;
+            text-decoration: none;
+        }
+
+        .stats {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .stats strong {
+            color: #e7e9ea;
+            font-weight: 700;
+        }
+
+        .stats span {
+            color: #71767b;
+        }
+
+        .mutual-followers {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12.5px;
+            color: #71767b;
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+
+        .mutual-avatars {
+            display: flex;
+            align-items: center;
+        }
+
+        .m-avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            margin-left: -7px;
+            background-color: #444;
+        }
+
+        .m-avatar:first-child {
+            margin-left: 0;
+            background-color: #d87093;
+        }
+        .m-avatar:nth-child(2) {
+            background-color: #8b7355;
+        }
+        .m-avatar:nth-child(3) {
+            background-color: #a9a9a9;
+        }
+
+        /* Tugmalar (Message / Follow) */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .btn-outline {
+            flex: 1;
+            padding: 9px 0;
+            border-radius: 9999px;
+            border: 1px solid #333639;
+            background-color: transparent;
+            color: #eff3f4;
+            font-weight: 700;
+            font-size: 14.5px;
+            cursor: pointer;
+        }
+
+        .btn-white {
+            flex: 1;
+            padding: 9px 0;
+            border-radius: 9999px;
+            border: none;
+            background-color: #eff3f4;
+            color: #0f1419;
+            font-weight: 700;
+            font-size: 14.5px;
+            cursor: pointer;
+        }
+
+        /* Verified Promo Card */
+        .promo-card {
+            background-color: #16181c;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+
+        .promo-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .promo-avatar {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background-color: #1e4276;
+            border: 2px solid #e7e9ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            color: #fff;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .promo-badge {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            background-color: #000;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .promo-text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #e7e9ea;
+            margin-bottom: 3px;
+        }
+
+        .promo-text p {
+            font-size: 13px;
+            color: #71767b;
+            line-height: 1.3;
+        }
+
+        .promo-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-dark-pill {
+            flex: 1;
+            padding: 8px 0;
+            border-radius: 9999px;
+            border: none;
+            background-color: #272c30;
+            color: #eff3f4;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Tablar paneli */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid #2f3336;
+            padding-top: 4px;
+        }
+
+        .tab {
+            padding: 12px 10px;
+            color: #71767b;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14.5px;
+            font-weight: 700;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            color: #e7e9ea;
+        }
+
+        .tab.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #eff3f4;
+            border-radius: 2px;
+        }
+
+        /* Pinned Post */
+        .post {
+            padding: 10px 16px;
+        }
+
+        .pinned-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #71767b;
+            margin-left: 26px;
+            margin-bottom: 6px;
+        }
+
+        .post-body {
+            display: flex;
+            gap: 10px;
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #b71c1c, #330000);
+            flex-shrink: 0;
+        }
+
+        .post-content {
+            flex: 1;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14.5px;
+            margin-bottom: 3px;
+        }
+
+        .post-user {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .post-user strong {
+            color: #e7e9ea;
+        }
+
+        .post-user span {
+            color: #71767b;
+        }
+
+        .post-text {
+            font-size: 14.5px;
+            color: #e7e9ea;
+            line-height: 1.35;
+        }
+
+        /* Floating Action Button (+) */
+        .fab {
+            position: fixed;
+            bottom: 24px;
+            right: calc(50% - 190px);
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background-color: #1d9bf0;
+            color: #ffffff;
+            border: none;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(29, 155, 240, 0.4);
+            cursor: pointer;
+        }
+
+        @media (max-width: 412px) {
+            .fab {
+                right: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-container">
+    <!-- Banner -->
+    <div class="banner">
+        <div class="top-actions">
+            <button class="circle-btn" aria-label="Back">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <div class="right-actions">
+                <button class="circle-btn" aria-label="Grok">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M6 18L18 6"/>
+                    </svg>
+                </button>
+                <button class="circle-btn" aria-label="Search">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="M20 20l-3.5-3.5"/>
+                    </svg>
+                </button>
+                <button class="circle-btn" aria-label="More">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="5" cy="12" r="2"/>
+                        <circle cx="12" cy="12" r="2"/>
+                        <circle cx="19" cy="12" r="2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="banner-pendant">
+            <span style="color:#d32f2f;">❤️</span><span style="color:#fbc02d;">💛</span>
+        </div>
+    </div>
+
+    <!-- Avatar & Share -->
+    <div class="profile-header">
+        <div class="avatar-wrapper">
+            <div class="avatar-placeholder">DP</div>
+        </div>
+        <button class="share-btn" aria-label="Share">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/>
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Profile Details -->
+    <div class="profile-info">
+        <div class="name-row">
+            <h1 class="name">Ryan Reynolds</h1>
+            <svg class="verified-badge" viewBox="0 0 24 24">
+                <path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"/>
+            </svg>
+        </div>
+        <div class="handle">@VancityReynolds</div>
+
+        <a href="#" class="translate-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M6 18L18 6"/>
+            </svg>
+            Show translation
+        </a>
+
+        <p class="bio">
+            Owner: <span>@MaximumEffort</span> &amp; <span>@Wrexham_AFC</span> &amp; <span>@BondsFlyingRoos</span>
+        </p>
+
+        <div class="meta-info">
+            <div class="meta-item">
+                <span>📍</span> 🇨🇦.
+            </div>
+            <div class="meta-item">
+                <span>🔗</span> <a href="#">mintmobile.com</a>
+            </div>
+            <div class="meta-item">
+                <span>📅</span> Joined noyabr 2014 &rsaquo;
+            </div>
+        </div>
+
+        <div class="stats">
+            <div><strong>1,6K</strong> <span>Following</span></div>
+            <div><strong>20,4M</strong> <span>Followers</span></div>
+        </div>
+
+        <div class="mutual-followers">
+            <div class="mutual-avatars">
+                <div class="m-avatar"></div>
+                <div class="m-avatar"></div>
+                <div class="m-avatar"></div>
+            </div>
+            <div>Followed by MarleneBloem, Miley Weasel, Dwayne Johnson, and 3 others</div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn-outline">Message</button>
+            <button class="btn-white">Follow</button>
+        </div>
+
+        <!-- Promo Card -->
+        <div class="promo-card">
+            <div class="promo-top">
+                <div class="promo-avatar">
+                    j
+                    <div class="promo-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#1d9bf0">
+                            <path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="promo-text">
+                    <h4>Verified looks good on you</h4>
+                    <p>Get verified like @VancityReynolds to stand out and get boosted reply reach.</p>
+                </div>
+            </div>
+            <div class="promo-buttons">
+                <button class="btn-dark-pill">Maybe Later</button>
+                <button class="btn-white">Get Verified</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+        <div class="tab active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="3"/>
+                <line x1="8" y1="9" x2="16" y2="9"/>
+                <line x1="8" y1="13" x2="13" y2="13"/>
+            </svg>
+            Posts
+            <span style="font-size: 11px;">&#8964;</span>
+        </div>
+        <div class="tab">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+        </div>
+        <div class="tab">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="17 1 21 5 17 9"/>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                <polyline points="7 23 3 19 7 15"/>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+        </div>
+        <div class="tab">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <polygon points="10 8 16 12 10 16 10 8"/>
+            </svg>
+        </div>
+    </div>
+
+    
+    <!-- Pinned Post -->
+    <div class="post">
+        <div class="pinned-label">
+            <span>📌</span> Pinned
+        </div>
+        <div class="post-body">
+            <div class="post-avatar"></div>
+            <div class="post-content">
+                <div class="post-header">
+                    <div class="post-user">
+                        <strong>Ryan Reynolds</strong>
+                        <svg class="verified-badge" style="width:15px; height:15px;" viewBox="0 0 24 24">
+                            <path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"/>
+                        </svg>
+                        <span>... &middot; 04 sen 25</span>
+                    </div>
+                    <span style="color:#71767b;">&#8942;</span>
+                </div>
+                <div class="post-text">
+                    Love is not a big enough word. John
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button class="fab" aria-label="New post">+</button>
+</div>
+
+</body>
+</html>
