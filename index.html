@@ -21,7 +21,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            min-height: 150vh; /* Silliq scroll qilish imkoniyati uchun */
+            min-height: 150vh;
             color: #ffffff;
         }
 
@@ -74,7 +74,7 @@
             transform: scale(0.92);
         }
 
-        /* Yuqorida qotib turuvchi sarlavha (scroll bo'lganda chiqadi) */
+        /* Yuqorida qotib turuvchi sarlavha */
         .sticky-header-title {
             font-size: 17px;
             font-weight: 700;
@@ -111,7 +111,7 @@
             will-change: transform, filter;
         }
 
-        /* Avatar: odam rasmi (scroll paytida silliq kichrayadi) */
+        /* Avatar: o'z joyida turadi (40% bannerda, 60% qora fonda) va markaziga qarab silliq kichrayadi */
         .avatar-container {
             width: 108px;
             height: 108px;
@@ -120,12 +120,11 @@
             border: 5px solid #000000;
             position: absolute;
             left: 20px;
-            top: 97px;
-            transform: translateY(-40%) scale(1);
-            transform-origin: left bottom;
+            top: 53.8px; /* 97px (chegara) - 43.2px (108px ning 40% qismi) = doimiy aniq joylashuv */
+            transform-origin: center center;
             z-index: 30;
             overflow: hidden;
-            will-change: transform, opacity;
+            will-change: transform;
         }
 
         .avatar-container img {
@@ -255,7 +254,7 @@
             color: #ffffff;
         }
 
-        /* Scroll ni sinab ko'rish uchun bo'sh postlar ro'yxati */
+        /* Scroll ni sinash uchun bo'sh postlar ro'yxati */
         .feed-placeholder {
             padding: 12px 20px;
         }
@@ -309,7 +308,7 @@
         <img class="banner-img" id="bannerImg" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Banner foni">
     </div>
 
-    <!-- Avatar doira: scroll bo'lganda silliq kichrayadi -->
+    <!-- Avatar doira: o'z joyida turadi va silliq kichrayadi -->
     <div class="avatar-container" id="avatarContainer">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Javlonbek">
     </div>
@@ -377,7 +376,7 @@
         </div>
     </div>
 
-    <!-- Scroll ni sinash uchun bo'sh joy -->
+    <!-- Scroll ni sinash uchun bo'sh postlar ro'yxati -->
     <div class="feed-placeholder">
         <div class="feed-item">Postlar ro'yxati...</div>
         <div class="feed-item"></div>
@@ -392,23 +391,20 @@
 
     let currentProgress = 0;
     let targetProgress = 0;
-    const maxScroll = 75; // Qancha piksel scroll bo'lganda maksimal kichrayishi
+    const maxScroll = 80;
 
     function updateProgress() {
         const scrollY = window.scrollY || window.pageYOffset;
         targetProgress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
 
         // Silliq (lerp) interpolatsiya
-        currentProgress += (targetProgress - currentProgress) * 0.16;
+        currentProgress += (targetProgress - currentProgress) * 0.14;
 
-        // Avatar 1 (108px) dan 0.52 (56px) gacha silliq kichrayadi
-        const scale = 1 - (currentProgress * 0.48);
-        // Yuqoriga surilganda biroz ko'tarilib qora fon ustida qoladi
-        const translateY = -40 + (currentProgress * 22);
+        // Doira o'z joyidan siljimasdan, o'z markaziga qarab 1 dan 0.55 gacha silliq kichrayadi
+        const scale = 1 - (currentProgress * 0.45);
+        avatar.style.transform = `scale(${scale})`;
 
-        avatar.style.transform = `translateY(${translateY}%) scale(${scale})`;
-
-        // Banner sekin xiralashadi va yaqinlashadi
+        // Banner sekin xiralashadi
         const blurAmount = currentProgress * 6;
         const bannerScale = 1 + (currentProgress * 0.08);
         bannerImg.style.filter = `blur(${blurAmount}px) brightness(${1 - currentProgress * 0.35})`;
