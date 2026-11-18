@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОТП Банк — Профиль</title>
+    <title>Javlonbek — Профиль</title>
     <style>
         * {
             box-sizing: border-box;
@@ -162,7 +162,7 @@
             z-index: 7;
         }
 
-        /* Avatar: aynan teng yarmi (50%) yashil bannerda, teng yarmi (50%) qora fonda */
+        /* Avatar: 40% yashil bannerda (-40%), 60% qora fonda */
         .avatar-container {
             width: 118px;
             height: 118px;
@@ -171,8 +171,8 @@
             border: 6px solid #000000;
             position: absolute;
             left: 20px;
-            top: 208px; /* 230px (banner) - 22px (bottom-sheet overlap) = chegara chizig'i */
-            transform: translateY(-50%);
+            top: 208px; /* 230px - 22px = chegara chizig'i */
+            transform: translateY(-40%);
             z-index: 20;
             display: flex;
             align-items: center;
@@ -187,20 +187,22 @@
             margin-top: -22px;
             position: relative;
             z-index: 10;
-            padding: 72px 20px 18px 20px; /* Avatarning pastki yarmi (59px) + 13px bo'sh joy */
+            padding: 18px 20px 18px 20px;
         }
 
-        /* Sarlavha va tasdiqlangan belgi */
-        .title-row {
+        /* Avatar o'ng tomonidagi Javlonbek yozuvi */
+        .profile-name-row {
+            margin-left: 132px; /* 20px chap chekka + 118px avatar - 6px masofa */
+            min-height: 56px;
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
-        .bank-title {
-            font-size: 26px;
-            font-weight: 600;
+        .user-title {
+            font-size: 25px;
+            font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.3px;
         }
@@ -209,6 +211,7 @@
             width: 20px;
             height: 20px;
             color: #4da3ff;
+            flex-shrink: 0;
         }
 
         /* Message va Follow tugmalari */
@@ -349,7 +352,7 @@
         <div class="age-badge">A+</div>
     </div>
 
-    <!-- Avatar doira (50% tepada, 50% pastda) -->
+    <!-- Avatar doira (40% tepada, 60% pastda) -->
     <div class="avatar-container">
         <svg width="74" height="74" viewBox="0 0 100 100">
             <path d="M 50 14 A 36 36 0 1 0 84 62" fill="none" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
@@ -360,8 +363,9 @@
 
     <!-- Pastki qora panel -->
     <div class="bottom-sheet">
-        <div class="title-row">
-            <h1 class="bank-title">ОТП Банк</h1>
+        <!-- Doiraning o'ng tomonidagi ism -->
+        <div class="profile-name-row">
+            <h1 class="user-title">Javlonbek</h1>
             <svg class="verified-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"/>
             </svg>
