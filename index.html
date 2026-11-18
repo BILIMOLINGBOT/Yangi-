@@ -29,7 +29,7 @@
             position: relative;
         }
 
-        /* 2 marta kichiklashtirilgan banner (115px) */
+        /* Kichiklashtirilgan banner (115px) */
         .banner {
             height: 115px;
             background-color: #1a2436;
@@ -84,7 +84,7 @@
             border: 5px solid #000000;
             position: absolute;
             left: 20px;
-            top: 97px; /* 115px (banner) - 18px (overlap) = chegara chizig'i */
+            top: 97px;
             transform: translateY(-40%);
             z-index: 20;
             overflow: hidden;
@@ -108,7 +108,7 @@
             padding: 14px 20px 18px 20px;
         }
 
-        /* Avatar o'ng tomonidagi Javlonbek yozuvi */
+        /* Avatar o'ng tomonidagi Javlonbek yozuvi va tasdiqlash belgisi */
         .profile-name-row {
             margin-left: 120px;
             min-height: 52px;
@@ -125,11 +125,13 @@
             letter-spacing: -0.3px;
         }
 
-        .verified-check {
-            width: 19px;
-            height: 19px;
-            color: #4da3ff;
+        .verified-badge-icon {
+            width: 22px;
+            height: 22px;
             flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* 30 Obunachilar, 50 Obunalar qismi */
@@ -203,12 +205,95 @@
         .nav-tab.active {
             color: #ffffff;
         }
+
+        /* Tasdiqlash belgisi sozlamasi qismi */
+        .section {
+            padding: 16px 20px;
+        }
+
+        .settings-group {
+            background-color: #16181c;
+            border-radius: 14px;
+            padding: 14px 16px;
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .setting-icon svg {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .setting-content {
+            flex: 1;
+        }
+
+        .setting-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 28px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-track {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background-color: #333639;
+            border-radius: 34px;
+            transition: 0.25s;
+        }
+
+        .toggle-track::before {
+            content: "";
+            position: absolute;
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            transition: 0.25s;
+        }
+
+        .toggle-switch input:checked + .toggle-track {
+            background-color: #1d9bf0;
+        }
+
+        .toggle-switch input:checked + .toggle-track::before {
+            transform: translateX(20px);
+        }
+
+        .setting-description {
+            font-size: 13px;
+            color: #71767b;
+            margin-top: 8px;
+            padding: 0 4px;
+        }
     </style>
 </head>
 <body>
 
 <div class="profile-card">
-    <!-- Boshqa rasm joylangan kichik banner -->
+    <!-- Banner -->
     <div class="banner">
         <img class="banner-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Banner foni">
 
@@ -237,19 +322,22 @@
         </div>
     </div>
 
-    <!-- Avatar doira: odam rasmi (40% tepada, 60% pastda) -->
+    <!-- Avatar doira: odam rasmi -->
     <div class="avatar-container">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Javlonbek">
     </div>
 
     <!-- Pastki qora panel -->
     <div class="bottom-sheet">
-        <!-- Doiraning o'ng tomonidagi ism -->
+        <!-- Javlonbek va uning yonidagi tasdiqlash belgisi -->
         <div class="profile-name-row">
             <h1 class="user-title">Javlonbek</h1>
-            <svg class="verified-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-            </svg>
+            <span class="verified-badge-icon" id="profileVerifiedBadge">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" fill="#ffffff" stroke="none"></path>
+                    <path d="m9 12 2 2 4-4" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
         </div>
 
         <!-- 30 Obunachilar, 50 Obunalar -->
@@ -298,7 +386,38 @@
             </svg>
         </div>
     </div>
+
+    <!-- Tasdiqlash belgisi sozlamasi -->
+    <div class="section">
+        <div class="settings-group">
+            <div class="setting-item" id="verifiedRow">
+                <div class="setting-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" fill="#ffffff" stroke="none"></path>
+                        <path d="m9 12 2 2 4-4" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <div class="setting-content">
+                    <span class="setting-title">Tasdiqlash belgisi</span>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="verifiedToggle" checked>
+                    <span class="toggle-track"></span>
+                </label>
+            </div>
+        </div>
+        <p class="setting-description">Profil yonida tasdiqlangan hisob belgisini ko‘rsatish.</p>
+    </div>
 </div>
+
+<script>
+    const verifiedToggle = document.getElementById('verifiedToggle');
+    const profileVerifiedBadge = document.getElementById('profileVerifiedBadge');
+
+    verifiedToggle.addEventListener('change', () => {
+        profileVerifiedBadge.style.display = verifiedToggle.checked ? 'inline-flex' : 'none';
+    });
+</script>
 
 </body>
 </html>
