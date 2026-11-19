@@ -12,7 +12,6 @@
       --surface-elevated: #222225;
       --text-primary: #FFFFFF;
       --text-secondary: #8E8E93;
-      --accent-green: #30D158;
       --accent-orange: #FF9F0A;
       --accent-blue: #0A84FF;
       --border-color: rgba(255, 255, 255, 0.08);
@@ -45,7 +44,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 20px;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.78);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
@@ -57,30 +56,30 @@
       gap: 7px;
       background: var(--surface-color);
       border: 1px solid var(--border-color);
-      padding: 8px 15px;
+      padding: 8px 16px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 19px;
       transition: all 0.3s ease;
     }
 
-    /* Olov o'chgan holat (bugun hali bajarilmagan) */
+    /* Olov o'chgan holat */
     .streak-pill .streak-icon {
-      filter: grayscale(100%) opacity(0.45);
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      filter: grayscale(100%) opacity(0.4);
       transform: scale(0.95);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    /* Olov yongan holat (Bajarildi bosilganda) */
+    /* Bajarildi bosilganda olov yongan holat */
     .streak-pill.lit {
-      border-color: rgba(255, 159, 10, 0.5);
-      background: rgba(255, 159, 10, 0.12);
-      box-shadow: 0 0 20px rgba(255, 159, 10, 0.25);
+      border-color: rgba(255, 159, 10, 0.55);
+      background: rgba(255, 159, 10, 0.14);
+      box-shadow: 0 0 22px rgba(255, 159, 10, 0.28);
     }
 
     .streak-pill.lit .streak-icon {
       filter: grayscale(0%) opacity(1);
-      transform: scale(1.18);
+      transform: scale(1.2);
     }
 
     .stats-badge {
@@ -110,83 +109,68 @@
       margin-bottom: 14px;
     }
 
-    /* Task Cards */
+    /* Mavzu + Bajarildi qatori */
     .task-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .task-card {
+    .task-row {
       background: var(--surface-color);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 18px;
+      border-radius: 18px;
+      padding: 14px 16px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    .task-card.completing {
+    .task-row.completing {
       opacity: 0;
-      transform: translateX(30px) scale(0.96);
+      transform: translateX(28px) scale(0.96);
     }
 
-    .task-info {
+    .task-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       flex: 1;
       min-width: 0;
     }
 
-    .meta-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .stage-tag {
-      display: inline-block;
+    .stage-pill {
+      flex-shrink: 0;
       font-size: 12px;
       font-weight: 700;
       color: var(--accent-blue);
       background: rgba(10, 132, 255, 0.15);
-      padding: 3px 9px;
+      padding: 4px 9px;
       border-radius: 8px;
-    }
-
-    .learned-date {
-      font-size: 11px;
-      color: var(--text-secondary);
     }
 
     .task-title {
       font-size: 17px;
       font-weight: 600;
-      line-height: 1.35;
-      word-wrap: break-word;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .task-note {
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-top: 4px;
-      line-height: 1.4;
-    }
-
-    /* Bajarildi Button */
     .done-btn {
+      flex-shrink: 0;
       background: var(--text-primary);
       color: #000000;
       border: none;
-      border-radius: 14px;
-      padding: 12px 16px;
+      border-radius: 12px;
+      padding: 10px 15px;
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
-      white-space: nowrap;
-      transition: transform 0.15s ease, background-color 0.2s ease;
+      transition: transform 0.12s ease, background-color 0.2s ease;
     }
 
     .done-btn:active {
@@ -203,17 +187,12 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 20px;
       color: var(--text-secondary);
     }
 
-    .empty-icon {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-
     .empty-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 6px;
@@ -221,13 +200,13 @@
 
     .empty-desc {
       font-size: 14px;
-      max-width: 260px;
+      max-width: 250px;
       line-height: 1.45;
     }
 
-    /* Upcoming preview */
+    /* Navbatdagilar */
     .upcoming-box {
-      margin-top: 28px;
+      margin-top: 30px;
       padding-top: 18px;
       border-top: 1px solid var(--border-color);
     }
@@ -236,7 +215,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 14px;
+      padding: 11px 14px;
       background: rgba(255, 255, 255, 0.03);
       border-radius: 14px;
       margin-bottom: 8px;
@@ -246,9 +225,14 @@
     .upcoming-left {
       color: var(--text-primary);
       font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: 10px;
     }
 
     .upcoming-right {
+      flex-shrink: 0;
       font-size: 12px;
       color: var(--text-secondary);
     }
@@ -269,7 +253,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.85);
       cursor: pointer;
       transition: transform 0.15s ease;
     }
@@ -332,19 +316,16 @@
       margin-bottom: 16px;
     }
 
-    .input-group {
-      margin-bottom: 14px;
-    }
-
     .input-field {
       width: 100%;
       background: var(--surface-elevated);
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      padding: 14px 16px;
+      padding: 15px 16px;
       color: var(--text-primary);
       font-size: 16px;
       outline: none;
+      margin-bottom: 14px;
     }
 
     .input-field:focus {
@@ -360,7 +341,6 @@
       padding: 15px;
       font-size: 16px;
       font-weight: 700;
-      margin-top: 6px;
       cursor: pointer;
     }
 
@@ -396,7 +376,7 @@
 </head>
 <body>
 
-  <!-- Header: Streak va Bugungi holat -->
+  <!-- Yuqori panel: Olov (Streak) va Bugungi son -->
   <header class="header">
     <div class="streak-pill" id="streakPill">
       <span class="streak-icon">🔥</span>
@@ -405,17 +385,14 @@
     <div class="stats-badge" id="todayStats">Bugun: 0 ta</div>
   </header>
 
-  <!-- Toast xabarnoma -->
   <div class="toast" id="toast"></div>
 
-  <!-- Asosiy ro'yxat -->
   <main class="container">
     <div class="section-title" id="sectionTitle">Bugun takrorlanadi</div>
     <div class="task-list" id="taskList"></div>
 
-    <!-- Kutilayotgan (ertaga va keyingi kunlar) ro'yxati -->
     <div class="upcoming-box" id="upcomingBox" style="display: none;">
-      <div class="section-title">Navbatdagi takrorlashlar</div>
+      <div class="section-title">Keyingi kunlar jadvali</div>
       <div id="upcomingList"></div>
     </div>
   </main>
@@ -425,18 +402,13 @@
     <span>+</span> Yangi
   </button>
 
-  <!-- Yangi mavzu qo'shish oynasi -->
+  <!-- Yangi mavzu kiritish oynasi -->
   <div class="modal-backdrop" id="modalBackdrop">
     <div class="modal-sheet">
       <div class="sheet-handle"></div>
       <div class="modal-title">Bugun yangi nima o‘rgandingiz?</div>
-      <div class="modal-sub">Bugun 1-kun hisoblanadi. Ertaga (2-kuni) takrorlash uchun chiqadi.</div>
-      <div class="input-group">
-        <input type="text" id="topicInput" class="input-field" placeholder="Mavzu nomi (masalan: Present Perfect)" autocomplete="off" />
-      </div>
-      <div class="input-group">
-        <input type="text" id="noteInput" class="input-field" placeholder="Qisqa izoh (ixtiyoriy)" autocomplete="off" />
-      </div>
+      <div class="modal-sub">Bugun 1-kun. Ertaga (2-kuni) Bajarildi tugmasi bilan chiqadi.</div>
+      <input type="text" id="topicInput" class="input-field" placeholder="Mavzu nomini yozing..." autocomplete="off" />
       <button class="save-btn" id="saveTopicBtn">Saqlash</button>
     </div>
   </div>
@@ -457,7 +429,7 @@
       }
     }
 
-    // Telefonning aniq mahalliy sanasini olish (YYYY-MM-DD)
+    // Aniq mahalliy sana (YYYY-MM-DD)
     function formatLocalDate(dateObj) {
       const y = dateObj.getFullYear();
       const m = String(dateObj.getMonth() + 1).padStart(2, '0');
@@ -480,31 +452,23 @@
       return addDaysToDateStr(getTodayStr(), -1);
     }
 
-    // 1-kun = o'rganilgan kun (+0)
-    // 2-kun = +1 kun
-    // 7-kun = +6 kun
-    // 14-kun = +13 kun
-    // 30-kun = +29 kun
+    // 1-kun (o'rganilgan kun) -> 2-kun (+1), 7-kun (+6), 14-kun (+13), 30-kun (+29)
     const REVIEW_STAGES = [2, 7, 14, 30];
 
     function getNextStage(currentStage) {
       const idx = REVIEW_STAGES.indexOf(currentStage);
-      if (idx === -1 || idx === REVIEW_STAGES.length - 1) {
-        return 'completed';
-      }
+      if (idx === -1 || idx === REVIEW_STAGES.length - 1) return 'completed';
       return REVIEW_STAGES[idx + 1];
     }
 
-    // Saqlangan ma'lumotlar
-    let topics = JSON.parse(localStorage.getItem('sr_topics_v2') || '[]');
-    let streakData = JSON.parse(localStorage.getItem('sr_streak_v2') || '{"count": 0, "lastDate": null}');
+    let topics = JSON.parse(localStorage.getItem('sr_topics_v3') || '[]');
+    let streakData = JSON.parse(localStorage.getItem('sr_streak_v3') || '{"count": 0, "lastDate": null}');
 
     function saveData() {
-      localStorage.setItem('sr_topics_v2', JSON.stringify(topics));
-      localStorage.setItem('sr_streak_v2', JSON.stringify(streakData));
+      localStorage.setItem('sr_topics_v3', JSON.stringify(topics));
+      localStorage.setItem('sr_streak_v3', JSON.stringify(streakData));
     }
 
-    // Streakni tekshirish
     function checkStreak() {
       const today = getTodayStr();
       const yesterday = getYesterdayStr();
@@ -514,8 +478,8 @@
       }
     }
 
-    // "Bajarildi" bosilganda olovni (🔥) yoqish
-    function lightFireStreak() {
+    // "Bajarildi" bosilganda olovni yoqish
+    function igniteStreak() {
       const today = getTodayStr();
       if (streakData.lastDate !== today) {
         streakData.count += 1;
@@ -537,7 +501,7 @@
       checkStreak();
       const today = getTodayStr();
 
-      // Streak UI (olov bugun bajarilganda yonadi)
+      // Streak holati
       document.getElementById('streakCount').textContent = streakData.count;
       const streakPill = document.getElementById('streakPill');
       if (streakData.lastDate === today && streakData.count > 0) {
@@ -546,9 +510,9 @@
         streakPill.classList.remove('lit');
       }
 
-      // Bugun takrorlanishi kerak bo'lganlar (nextReviewDate <= bugun)
+      // Bugun takrorlanadiganlar
       const dueTopics = topics.filter(t => t.stage !== 'completed' && t.nextReviewDate <= today);
-      // Kelajakdagi takrorlashlar (nextReviewDate > bugun)
+      // Keyingi kunlardagilar
       const upcomingTopics = topics
         .filter(t => t.stage !== 'completed' && t.nextReviewDate > today)
         .sort((a, b) => a.nextReviewDate.localeCompare(b.nextReviewDate));
@@ -563,34 +527,29 @@
         sectionTitle.style.display = 'none';
         listEl.innerHTML = `
           <div class="empty-state">
-            <div class="empty-icon">✓</div>
             <div class="empty-title">Bugungi takrorlashlar yo‘q</div>
-            <div class="empty-desc">Bugun o‘rgangan yangi narsangizni kiritish uchun <b>+ Yangi</b> tugmasini bosing.</div>
+            <div class="empty-desc">Yangi o‘rgangan mavzuni kiritish uchun <b>+ Yangi</b> tugmasini bosing.</div>
           </div>
         `;
       } else {
         sectionTitle.style.display = 'block';
         dueTopics.forEach(topic => {
-          const card = document.createElement('div');
-          card.className = 'task-card';
-          card.id = `card-${topic.id}`;
+          const row = document.createElement('div');
+          row.className = 'task-row';
+          row.id = `row-${topic.id}`;
 
-          card.innerHTML = `
-            <div class="task-info">
-              <div class="meta-row">
-                <span class="stage-tag">${topic.stage}-kun takrorlash</span>
-                <span class="learned-date">1-kun: ${topic.learnedDate}</span>
-              </div>
-              <div class="task-title">${escapeHtml(topic.title)}</div>
-              ${topic.note ? `<div class="task-note">${escapeHtml(topic.note)}</div>` : ''}
+          row.innerHTML = `
+            <div class="task-left">
+              <span class="stage-pill">${topic.stage}-kun</span>
+              <span class="task-title">${escapeHtml(topic.title)}</span>
             </div>
             <button class="done-btn" onclick="completeTopic('${topic.id}')">Bajarildi</button>
           `;
-          listEl.appendChild(card);
+          listEl.appendChild(row);
         });
       }
 
-      // Kelajakdagi ro'yxat (foydalanuvchi yangi kiritgan narsasi ertaga 2-kuni chiqishini ko'rib turishi uchun)
+      // Navbatdagilar jadvali
       const upcomingBox = document.getElementById('upcomingBox');
       const upcomingList = document.getElementById('upcomingList');
       if (upcomingTopics.length > 0) {
@@ -598,7 +557,7 @@
         upcomingList.innerHTML = upcomingTopics.map(t => `
           <div class="upcoming-item">
             <span class="upcoming-left">${escapeHtml(t.title)}</span>
-            <span class="upcoming-right">${t.stage}-kun • ${t.nextReviewDate}</span>
+            <span class="upcoming-right">${t.stage}-kun (${t.nextReviewDate})</span>
           </div>
         `).join('');
       } else {
@@ -606,40 +565,38 @@
       }
     }
 
-    // "Bajarildi" bosilganda
+    // Mavzu oldidagi "Bajarildi" tugmasi bosilganda
     window.completeTopic = function(id) {
       const topic = topics.find(t => t.id === id);
       if (!topic) return;
 
       haptic('success');
-      const card = document.getElementById(`card-${id}`);
-      if (card) card.classList.add('completing');
+      const row = document.getElementById(`row-${id}`);
+      if (row) row.classList.add('completing');
 
       const nextStage = getNextStage(topic.stage);
 
       setTimeout(() => {
         if (nextStage === 'completed') {
           topic.stage = 'completed';
-          showToast('🔥 30 kunlik takrorlash to‘liq tugadi!');
+          showToast('🔥 30 kunlik takrorlash tugadi!');
         } else {
           topic.stage = nextStage;
-          // Har doim 1-kuni o'rganilgan sanadan (learnedDate) aniq hisoblanadi:
-          // 2-kun (+1), 7-kun (+6), 14-kun (+13), 30-kun (+29)
+          // 1-kuni o'rganilgan sanadan aniq hisoblash:
           topic.nextReviewDate = addDaysToDateStr(topic.learnedDate, nextStage - 1);
-          showToast(`🔥 Bajarildi! Keyingisi: ${nextStage}-kuni (${topic.nextReviewDate})`);
+          showToast(`🔥 Olov yondi! Keyingisi: ${nextStage}-kuni`);
         }
 
         // Olovni yoqish
-        lightFireStreak();
+        igniteStreak();
         saveData();
         render();
-      }, 250);
+      }, 240);
     };
 
-    // Modal oynani boshqarish
+    // Modal oynani ochish/yopish
     const modalBackdrop = document.getElementById('modalBackdrop');
     const topicInput = document.getElementById('topicInput');
-    const noteInput = document.getElementById('noteInput');
 
     document.getElementById('openModalBtn').addEventListener('click', () => {
       haptic('medium');
@@ -648,16 +605,16 @@
     });
 
     modalBackdrop.addEventListener('click', (e) => {
-      if (e.target === modalBackdrop) {
-        modalBackdrop.classList.remove('open');
-      }
+      if (e.target === modalBackdrop) modalBackdrop.classList.remove('open');
     });
 
-    // Yangi narsa kiritish (1-kun sifatida saqlanadi, ertaga 2-kuni chiqadi)
+    // Enter tugmasi bilan ham saqlash
+    topicInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('saveTopicBtn').click();
+    });
+
     document.getElementById('saveTopicBtn').addEventListener('click', () => {
       const title = topicInput.value.trim();
-      const note = noteInput.value.trim();
-
       if (!title) {
         haptic('light');
         topicInput.focus();
@@ -666,24 +623,20 @@
 
       haptic('success');
       const today = getTodayStr();
-      const day2Date = addDaysToDateStr(today, 1); // Ertaga = 2-kun
+      const day2Date = addDaysToDateStr(today, 1);
 
-      const newTopic = {
+      topics.unshift({
         id: Date.now().toString(),
         title,
-        note,
-        learnedDate: today,       // 1-kun (o'rganilgan sana)
-        stage: 2,                 // Birinchi takrorlash 2-kuni bo'ladi
-        nextReviewDate: day2Date  // Ertaga ekranda chiqadi
-      };
+        learnedDate: today,       // 1-kun
+        stage: 2,                 // Ertaga 2-kuni chiqadi
+        nextReviewDate: day2Date
+      });
 
-      topics.unshift(newTopic);
       saveData();
-
       topicInput.value = '';
-      noteInput.value = '';
       modalBackdrop.classList.remove('open');
-      showToast(`Saqlandi! Ertaga (2-kuni) takrorlashga chiqadi`);
+      showToast('Saqlandi! Ertaga (2-kuni) chiqadi');
       render();
     });
 
