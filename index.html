@@ -70,7 +70,7 @@
       transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    /* Bajarildi bosilganda olov yongan holat */
+    /* Olov yongan holat (1-kun qo'shilganda yoki Bajarildi bosilganda) */
     .streak-pill.lit {
       border-color: rgba(255, 159, 10, 0.55);
       background: rgba(255, 159, 10, 0.14);
@@ -407,9 +407,9 @@
     <div class="modal-sheet">
       <div class="sheet-handle"></div>
       <div class="modal-title">Bugun yangi nima o‘rgandingiz?</div>
-      <div class="modal-sub">Bugun 1-kun. Ertaga (2-kuni) Bajarildi tugmasi bilan chiqadi.</div>
+      <div class="modal-sub">Bugun 1-kun hisoblanadi. Ertaga (2-kuni) Bajarildi tugmasi bilan chiqadi.</div>
       <input type="text" id="topicInput" class="input-field" placeholder="Mavzu nomini yozing..." autocomplete="off" />
-      <button class="save-btn" id="saveTopicBtn">Saqlash</button>
+      <button class="save-btn" id="saveTopicBtn">Saqlash (1-kun)</button>
     </div>
   </div>
 
@@ -452,7 +452,8 @@
       return addDaysToDateStr(getTodayStr(), -1);
     }
 
-    // 1-kun (o'rganilgan kun) -> 2-kun (+1), 7-kun (+6), 14-kun (+13), 30-kun (+29)
+    // 1-kun = kiritilgan kun (darhol hisoblanadi)
+    // Keyingi bosqichlar: 2-kun (+1), 7-kun (+6), 14-kun (+13), 30-kun (+29)
     const REVIEW_STAGES = [2, 7, 14, 30];
 
     function getNextStage(currentStage) {
@@ -461,12 +462,12 @@
       return REVIEW_STAGES[idx + 1];
     }
 
-    let topics = JSON.parse(localStorage.getItem('sr_topics_v3') || '[]');
-    let streakData = JSON.parse(localStorage.getItem('sr_streak_v3') || '{"count": 0, "lastDate": null}');
+    let topics = JSON.parse(localStorage.getItem('sr_topics_v4') || '[]');
+    let streakData = JSON.parse(localStorage.getItem('sr_streak_v4') || '{"count": 0, "lastDate": null}');
 
     function saveData() {
-      localStorage.setItem('sr_topics_v3', JSON.stringify(topics));
-      localStorage.setItem('sr_streak_v3', JSON.stringify(streakData));
+      localStorage.setItem('sr_topics_v4', JSON.stringify(topics));
+      localStorage.setItem('sr_streak_v4', JSON.stringify(streakData));
     }
 
     function checkStreak() {
@@ -478,7 +479,7 @@
       }
     }
 
-    // "Bajarildi" bosilganda olovni yoqish
+    // Olovni yoqish (1-kun yangi kiritilganda ham, Bajarildi bosilganda ham)
     function igniteStreak() {
       const today = getTodayStr();
       if (streakData.lastDate !== today) {
@@ -582,12 +583,10 @@
           showToast('🔥 30 kunlik takrorlash tugadi!');
         } else {
           topic.stage = nextStage;
-          // 1-kuni o'rganilgan sanadan aniq hisoblash:
           topic.nextReviewDate = addDaysToDateStr(topic.learnedDate, nextStage - 1);
           showToast(`🔥 Olov yondi! Keyingisi: ${nextStage}-kuni`);
         }
 
-        // Olovni yoqish
         igniteStreak();
         saveData();
         render();
@@ -608,11 +607,11 @@
       if (e.target === modalBackdrop) modalBackdrop.classList.remove('open');
     });
 
-    // Enter tugmasi bilan ham saqlash
     topicInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') document.getElementById('saveTopicBtn').click();
     });
 
+    // "+ Yangi" saqlanganda: 1-kun hisoblanadi va 🔥 darhol yonadi!
     document.getElementById('saveTopicBtn').addEventListener('click', () => {
       const title = topicInput.value.trim();
       if (!title) {
@@ -628,15 +627,18 @@
       topics.unshift({
         id: Date.now().toString(),
         title,
-        learnedDate: today,       // 1-kun
-        stage: 2,                 // Ertaga 2-kuni chiqadi
+        learnedDate: today,       // Bugun = 1-kun bajarildi
+        stage: 2,                 // Keyingi takrorlash = 2-kun (ertaga)
         nextReviewDate: day2Date
       });
 
+      // 1-kun kiritilgani uchun olovni darhol yoqish
+      igniteStreak();
       saveData();
+
       topicInput.value = '';
       modalBackdrop.classList.remove('open');
-      showToast('Saqlandi! Ertaga (2-kuni) chiqadi');
+      showToast('🔥 1-kun hisoblandi! Ertaga (2-kuni) chiqadi');
       render();
     });
 
